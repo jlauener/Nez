@@ -182,5 +182,19 @@ namespace Nez
 		{
 			Array.Sort(Buffer, 0, Length, comparer);
 		}
+
+		public void StableSort(IComparer<T> comparer)
+		{
+			for (var i = 2; i < Length; i++)
+			{
+				for (var j = i; j > 1 && comparer.Compare(Buffer[j], Buffer[j - 1]) < 0; j--)
+				{
+					// swap
+					T temp = Buffer[j];
+					Buffer[j] = Buffer[j - 1];
+					Buffer[j - 1] = temp;
+				}
+			}
+		}
 	}
 }

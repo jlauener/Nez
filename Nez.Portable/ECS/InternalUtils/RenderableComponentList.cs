@@ -6,6 +6,10 @@ namespace Nez
 	{
 		// global updateOrder sort for the IRenderable lists
 		public static IComparer<IRenderable> CompareUpdatableOrder = new RenderableComparer();
+		public static System.Action<FastList<IRenderable>, IComparer<IRenderable>> ComponentSort = (list, comparer) =>
+		{
+			list.StableSort(comparer);
+		};
 
 		/// <summary>
 		/// list of components added to the entity
@@ -92,7 +96,7 @@ namespace Nez
 		{
 			if (_componentsNeedSort)
 			{
-				_components.Sort(CompareUpdatableOrder);
+				ComponentSort(_components, CompareUpdatableOrder);
 				_componentsNeedSort = false;
 			}
 
