@@ -37,6 +37,19 @@ namespace Nez
 			return vec;
 		}
 
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static Vector2 Truncate(Vector2 vec, float length)
+		{
+			var l = vec.Length();
+			if (l > length)
+			{
+				vec /= l;
+				vec *= length;
+			}
+
+			return vec;
+		}
+
 
 		/// <summary>
 		/// rounds the x and y values
@@ -214,8 +227,7 @@ namespace Nez
 		public static Vector3 ToVector3(this Vector2 vec)
 		{
 			return new Vector3(vec, 0);
-		}
-
+		}		
 
 		/// <summary>
 		/// checks if a triangle is CCW or CW
