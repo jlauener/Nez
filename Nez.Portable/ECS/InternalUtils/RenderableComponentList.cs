@@ -8,7 +8,7 @@ namespace Nez
 		public static IComparer<IRenderable> CompareUpdatableOrder = new RenderableComparer();
 		public static System.Action<FastList<IRenderable>, IComparer<IRenderable>> ComponentSort = (list, comparer) =>
 		{
-			list.StableSort(comparer);
+			list.Sort(comparer);
 		};
 
 		/// <summary>
