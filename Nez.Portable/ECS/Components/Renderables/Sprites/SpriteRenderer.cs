@@ -179,7 +179,7 @@ namespace Nez.Sprites
 		public override void Render(Batcher batcher, Camera camera)
 		{
 			batcher.Draw(Sprite, Entity.Transform.Position + LocalOffset, Color,
-				Entity.Transform.Rotation, Origin, Entity.Transform.Scale, SpriteEffects, _layerDepth);
+				Entity.Transform.Rotation, Origin, Entity.Transform.Scale * LocalScale, SpriteEffects, _layerDepth);
 		}
 	}
 }
